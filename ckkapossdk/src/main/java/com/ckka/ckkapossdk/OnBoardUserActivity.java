@@ -13,18 +13,6 @@ public class OnBoardUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CkkaSdk sdk = CkkaSdk.getInstance(this, new OnCkkaActionListener() {
-            @Override
-            public void onSuccess(String message) {
-
-            }
-
-            @Override
-            public void onFailure(String message) {
-
-            }
-        });
-        sdk.sendDataToCkka("",0d,"");
 
     }
 }

@@ -24,8 +24,6 @@ public class CkkaSdk {
     private static Activity mContext;
     private static CkkaSdk ckkaSdk;
     private String POSid;
-    private OnCkkaActionListener onCkkaActionListener;
-
     private String getPOSid() {
         return POSid;
     }
@@ -34,19 +32,18 @@ public class CkkaSdk {
         this.POSid = POSid;
     }
 
-    public static CkkaSdk getInstance(Activity context, OnCkkaActionListener onCkkaActionListener) {
+    public static CkkaSdk getInstance(Activity context) {
         if (mContext == null) {
-            ckkaSdk = new CkkaSdk(context, onCkkaActionListener);
+            ckkaSdk = new CkkaSdk(context);
         }
         return ckkaSdk;
     }
 
-    private CkkaSdk(Activity mContext, OnCkkaActionListener onCkkaActionListener) {
+    private CkkaSdk(Activity mContext) {
         this.mContext = mContext;
-        this.onCkkaActionListener = onCkkaActionListener;
     }
 
-    protected void sendDataToCkka(String POSid, double total_amount, String jsonCartData) {
+    public void sendDataToCkka(String POSid, double total_amount, String jsonCartData, final OnCkkaActionListener onCkkaActionListener) {
         setPOSid(POSid);
         if (total_amount <= 0d) {
             onCkkaActionListener.onFailure(mContext.getString(R.string.validate_amount));
