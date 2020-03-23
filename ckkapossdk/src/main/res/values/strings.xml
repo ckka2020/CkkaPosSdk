@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CkkaPosSdk</string>
+    <string name="validate_amount">Please enter some valuable amount</string>
+    <string name="validate_pos">Your POS key is missing</string>
+    <string name="data_sent_to_ckka">Data sent to Ckka successfully</string>
+    <string name="scan_qr">Scan this QR</string>
+    <string name="pair_info">It will pair mobile device to this terminal</string>
+    <string name="ok">OK</string>
+</resources>

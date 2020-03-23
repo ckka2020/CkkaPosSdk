@@ -1,0 +1,2 @@
+include ':app', ':ckkapossdk'
+rootProject.name='CkkaSDK'
