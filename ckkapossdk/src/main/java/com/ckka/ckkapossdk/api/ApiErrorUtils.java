@@ -28,7 +28,7 @@ public class ApiErrorUtils {
             return ERROR_NETWORK;
         } else if (t instanceof SocketException) {
             Log.e(TAG, CONNECTION_TIMEOUT);
-            return CONNECTION_TIMEOUT;
+            return ERROR_NETWORK;
         } else if (t instanceof IOException) {
             Log.e(TAG, INTERNAL_SERVER_ERROR);
             return INTERNAL_SERVER_ERROR;
