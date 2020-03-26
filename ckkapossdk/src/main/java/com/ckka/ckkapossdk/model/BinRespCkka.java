@@ -16,7 +16,7 @@ private String responseCode;
 private String message;
 @SerializedName("body")
 @Expose
-private Object body;
+private String body;
 
 public String getStatus() {
 return status;
@@ -42,11 +42,11 @@ public void setMessage(String message) {
 this.message = message;
 }
 
-public Object getBody() {
+public String getBody() {
 return body;
 }
 
-public void setBody(Object body) {
+public void setBody(String body) {
 this.body = body;
 }
 

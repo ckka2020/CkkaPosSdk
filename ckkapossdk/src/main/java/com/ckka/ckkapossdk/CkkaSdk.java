@@ -2,7 +2,6 @@ package com.ckka.ckkapossdk;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.view.View;
@@ -21,26 +20,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CkkaSdk {
-    private static Activity mContext;
-    private static CkkaSdk ckkaSdk;
+    private Activity mContext;
     private String POSid;
+
+    private CkkaSdk(Activity mContext) {
+        this.mContext = mContext;
+    }
+
     private String getPOSid() {
         return POSid;
     }
 
     private void setPOSid(String POSid) {
         this.POSid = POSid;
-    }
-
-    public static CkkaSdk getInstance(Activity context) {
-        if (mContext == null) {
-            ckkaSdk = new CkkaSdk(context);
-        }
-        return ckkaSdk;
-    }
-
-    private CkkaSdk(Activity mContext) {
-        this.mContext = mContext;
     }
 
     public void sendDataToCkka(String POSid, double total_amount, String jsonCartData, final OnCkkaActionListener onCkkaActionListener) {
@@ -63,10 +55,15 @@ public class CkkaSdk {
             public void onResponse(Call<BinRespCkka> call, Response<BinRespCkka> response) {
                 if (response.isSuccessful()) {
                     BinRespCkka binRespCkka = response.body();
-                    if (binRespCkka != null && binRespCkka.getMessage() != null)
-                        onCkkaActionListener.onSuccess(binRespCkka.getMessage());
+
+                    if (binRespCkka == null)
+                        onCkkaActionListener.onFailure(ApiErrorUtils.SOMETHING_WENT_WRONG);
+                    else if (binRespCkka != null && binRespCkka.getBody() == null)
+                        onCkkaActionListener.onFailure(mContext.getString(R.string.missing_ack_id));
+                    else if (binRespCkka != null && binRespCkka.getBody() != null && binRespCkka.getMessage() != null)
+                        onCkkaActionListener.onSuccess(binRespCkka.getBody(), binRespCkka.getMessage());
                     else
-                        onCkkaActionListener.onSuccess(mContext.getString(R.string.data_sent_to_ckka));
+                        onCkkaActionListener.onSuccess(binRespCkka.getBody(), mContext.getString(R.string.data_sent_to_ckka));
                 } else {
                     if (response.errorBody() != null) {
                         ApiError apiError = ApiErrorUtils.parseError(response);
