@@ -1,2 +1,3 @@
+include ':ckkapossdksample'
 include /*':app',*/ ':ckkapossdk'
 rootProject.name='CkkaSDK'
