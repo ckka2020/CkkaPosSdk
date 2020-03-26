@@ -23,7 +23,7 @@ public class CkkaSdk {
     private Activity mContext;
     private String POSid;
 
-    private CkkaSdk(Activity mContext) {
+    public CkkaSdk(Activity mContext) {
         this.mContext = mContext;
     }
 
