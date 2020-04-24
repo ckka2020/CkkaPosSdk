@@ -47,7 +47,7 @@ public class CkkaActivity extends AppCompatActivity {
     private String getPOSid()
     {
         /*eg. */
-        return "5e731afe6d5f11169bef15e9";
+        return "73ebfd21-91e4-484a-be8a-dfe5b479592f";
 //        return "<YOUR POS-ID HERE>";
     }
 
