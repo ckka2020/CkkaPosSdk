@@ -39,6 +39,11 @@ public class CkkaActivity extends AppCompatActivity {
                             public void onFailure(String message) {
                                 Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
                             }
+
+                            @Override
+                            public void onTryingToPair() {
+                                Toast.makeText(mContext, "onQRcodeDisplayed", Toast.LENGTH_LONG).show();
+                            }
                         });
             }
         });

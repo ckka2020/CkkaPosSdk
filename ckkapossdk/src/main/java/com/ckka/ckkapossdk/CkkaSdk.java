@@ -70,6 +70,7 @@ public class CkkaSdk {
                         if (apiError.getResponseCode() != null &&
                                 apiError.getResponseCode().equals
                                         (SERVER_RESPONSE_CODE.DEVICE_NOT_PAIRED)) {
+                            onCkkaActionListener.onTryingToPair();
                             showPairingQR();
                         } else {
                             if (!Validator.isNullEmpty(apiError.getMessage()))
