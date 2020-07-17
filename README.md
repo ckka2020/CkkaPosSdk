@@ -17,7 +17,7 @@
 
 
     dependencies {
-                implementation 'com.github.ckka2020:CkkaPosSdk:1.0.5'
+                implementation 'com.github.ckka2020:CkkaPosSdk:1.0.8'
         }
   
   
@@ -39,7 +39,7 @@
             <dependency>
                 <groupId>com.github.ckka2020</groupId>
                 <artifactId>CkkaPosSdk</artifactId>
-                <version>1.0.5</version>
+                <version>1.0.8</version>
             </dependency>
 
   **Hardware Acceleration**
