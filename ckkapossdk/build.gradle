@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0.7"
+        versionCode 2
+        versionName "1.0.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -23,7 +23,7 @@ android {
         }
         debug {
             minifyEnabled false
-            buildConfigField "String", "BaseUrl", "\"http://13.232.215.173:3000\""
+            buildConfigField "String", "BaseUrl", "\"http://15.206.212.118:3000\""
         }
     }
 
