@@ -24,7 +24,7 @@ public class CkkaActivity extends AppCompatActivity {
         findViewById(R.id.txtSend).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                totalAmount = 100.50;
+                totalAmount = 1d;
                 ckkaSdk.sendDataToCkka(
                         /*<YOUR POS-ID HERE>*/ getPOSid(),
                         /*<YOUR TOTAL AMOUNT HERE>*/ totalAmount,
